@@ -31,7 +31,7 @@ export async function ListProducts({ title, products }: ListProductsProps) {
           </div>
         </div>
       </header>
-      <div className="flex w-full gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden px-4">
+      <div className="flex w-full gap-3 overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden px-4 h-[320px]">
         {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}

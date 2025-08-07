@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { CategorySelector } from "@/components/common/CategorySelector";
 import { Header } from "@/components/common/Header";
 import { ListProducts } from "@/components/common/ListProducts";
 import { db } from "@/db";
@@ -10,6 +11,8 @@ export default async function Home() {
       variants: true
     },
   });
+
+  const categories = await db.query.categoryTable.findMany();
   return (
     <div className="mx-auto w-full max-w-[1352px]">
       <Header />
@@ -28,6 +31,10 @@ export default async function Home() {
           title="Mais vendidos" 
           products={products} 
         />
+        <div className="px-4">
+          <CategorySelector categories={categories} />
+        </div>
+
         <div className="px-4">
           <Image
             src="/banner-02.png"

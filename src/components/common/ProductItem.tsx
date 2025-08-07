@@ -28,7 +28,7 @@ export function ProductItem({ product }: ProductItemProps) {
         />
         <div className="flex flex-col gap-1">
           <h3 className="truncate text-sm font-medium">{product.name}</h3>
-          <p className="text-muted-foreground text-xs font-medium line-clamp-2 w-[200px]">
+          <p className="text-muted-foreground text-xs font-medium line-clamp-2 w-[200px] h-full">
             {product.description}
           </p>
           <span className="text-sm font-bold mt-6">
