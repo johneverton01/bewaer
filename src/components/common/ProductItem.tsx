@@ -15,14 +15,15 @@ interface ProductItemProps {
 }
 
 export function ProductItem({ product, textContainerClassName }: ProductItemProps) {
-  const firstVariant = product.variants[0].imageUrl
+  const {imageUrl, slug} = product.variants[0]
+ 
   const priceFormatted = formatCentsToBRL(product.variants[0].priceInCents);
-  const imageUrl = firstVariant.replace(/^{"|"}$/g, '')
+  const imageUrlFormatted = imageUrl.replace(/^{"|"}$/g, '')
   return (
     <div>
-      <Link href="/" className="flex flex-col gap-4">
+      <Link href={`/product-variant/${slug}`} className="flex flex-col gap-4">
         <Image
-          src={imageUrl}
+          src={imageUrlFormatted}
           alt={product.name}
           sizes="100vw"
           width={0}
