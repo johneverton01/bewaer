@@ -52,13 +52,13 @@ export function SignInForm() {
           router.push("/");
         },
         onError: (ctx) => {
-          if (ctx.error.code === 'USER_NOT_FOUND') {
+          if (ctx.error.code === "USER_NOT_FOUND") {
             toast.error("Usuário não encontrado");
             return form.setError("email", {
               message: "Usuário não encontrado",
             });
           }
-          if (ctx.error.code === 'INVALID_EMAIL_OR_PASSWORD') {
+          if (ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
             toast.error("E-mail ou senha inválidos");
             return form.setError("email", {
               message: "E-mail ou senha inválidos",
@@ -69,6 +69,12 @@ export function SignInForm() {
           });
         },
       },
+    });
+  };
+
+  const signInWithGoogle = async () => {
+    await authClient.signIn.social({
+      provider: "google",
     });
   };
   return (
@@ -121,7 +127,12 @@ export function SignInForm() {
             </CardContent>
             <CardFooter className="flex flex-col gap-2">
               <Button className="bg-primary w-full">Entrar</Button>
-              <Button variant="outline" className="w-full">
+              <Button
+                className="w-full"
+                type="button"
+                variant="outline"
+                onClick={signInWithGoogle}
+              >
                 Entrar com Google
               </Button>
             </CardFooter>
