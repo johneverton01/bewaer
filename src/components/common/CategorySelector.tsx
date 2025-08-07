@@ -12,7 +12,7 @@ interface CategorySelectorProps {
 export function CategorySelector({ categories }: CategorySelectorProps) {
   return (
     <div className="rounded-3xl bg-[#f4efff] p-6 flex md:hidden">
-        <div className="grid grid-cols-2 gap-4 ">
+        <div className="grid grid-cols-2 gap-4">
           {categories.map((category) => (
             <Button 
               key={category.id} 
