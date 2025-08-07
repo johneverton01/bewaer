@@ -1,3 +1,6 @@
+
+import Link from "next/link";
+
 import { categoryTable } from "@/db/schema";
 
 import { Button } from "../ui/button";
@@ -16,7 +19,9 @@ export function CategorySelector({ categories }: CategorySelectorProps) {
               variant="ghost" 
               className="rounded-full bg-white"
             >
-              <span className="text-xs font-semibold">{category.name}</span>
+              <Link href={`/category/${category.slug}`}>
+                <span className="text-xs font-semibold">{category.name}</span>
+              </Link>
             </Button>
           ))}
         </div>
